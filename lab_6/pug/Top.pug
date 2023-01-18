@@ -1,0 +1,460 @@
+extends Template
+block variables
+    -   var title = 'Топ'
+block content 
+    .content-container
+        .filters
+            details
+                summary График
+                form
+                    table
+                        tr
+                            th Значениe по оси OX
+                            th Результат
+                        tr
+                            td
+                                input(type='radio' name='ox' value='0')
+                                span Тип
+                                br
+                                input(type='radio' name='ox' value='1')
+                                span Страна
+                                br
+                                input(type='radio' name='ox' value='3')
+                                span Год
+                                br
+                            td
+                                input(type='checkbox' name='oy' value='0')
+                                span Максимальную скорость
+                                br
+                                input(type='checkbox' name='oy' value='1')
+                                span Минимальная скорость
+                                br
+                                input(type='checkbox' name='oy' value='3')
+                                span Количество самолётов
+                                br
+                    input(type='button' value='Построить')
+            br
+            details
+                summary Фильтр
+                form
+                    .fields
+                        label(for='structure') Название (НАТО):
+                        input(type='text' name='plane')
+                    .fields
+                        label(for='category') Тип:
+                        input(type='text' name='type')
+                    .fields
+                        label(for='country') Страна:
+                        input(type='text' name='country')
+                    .fields
+                        label(for='ffFrom') Первый полёт: от
+                        input(type='text' name='ffFrom')
+                        span до 
+                        input(type='text' name='ffTO')
+                    .fields
+                        label(for='msFrom') Максимальная скорость: от
+                        input(type='text' name='msFrom')
+                        span до 
+                        input(type='text' name='msTO')
+                    .fields
+                        label(for='mhFrom') Максимальная высота: от
+                        input(type='text' name='mhFrom')
+                        span до
+                        input(type='text' name='mhTO')
+                    input(type='button' value='Найти')
+            br
+            details.sort
+                summary Сортировка
+                form
+                    .fields
+                        label Первый уровень:
+                        select(name='sortFirst')
+                            option(value='0') Название
+                            option(value='1') Тип
+                            option(value='2') Страна
+                            option(value='3') Год
+                            option(value='4') Максимальная скорость
+                            option(value='6') Максимальная высота
+                        span по убыванию? 
+                        input(type='checkbox' name='descFirst')
+                    .fields
+                        label Второй уровень:
+                        select(name='sortSecond')
+                            option(value='0') Название
+                            option(value='1') Тип
+                            option(value='2') Страна
+                            option(value='3') Год
+                            option(value='4') Максимальная скорость
+                            option(value='6') Максимальная высота
+                        span по убыванию?
+                        input(type='checkbox' name='descSecond')
+                    .fields
+                        label Третий уровень:
+                        select(name='sortThird')
+                            option(value='0') Название
+                            option(value='1') Тип
+                            option(value='2') Страна
+                            option(value='3') Год
+                            option(value='4') Максимальная скорость
+                            option(value='6') Максимальная высота
+                        span по убыванию?
+                        input(type='checkbox' name='descThird')
+                    input(type='button' value='Сортировать')
+        .table
+            table
+                tr
+                    <th>Название(НАТО)
+                    <th>Тип<th>Страна
+                    <th>Первый полёт
+                    <th>Макс. скорость, мах
+                    <th>Макс. высота, футы
+                tr
+                    td X-43
+                    td Беспилотный экспериментальный гиперзвуковой летательный аппарат
+                    td США
+                    td 2001
+                    td 9.8
+                    td 110000
+                tr
+                    td X-15
+                    td Экспериментальный самолёт
+                    td США
+                    td 1959
+                    td 6.72
+                    td 354200
+                tr
+                    td SR-71 Blackbird
+                    td Стратегический разведчик
+                    td США
+                    td 1964
+                    td 3.2
+                    td 85000
+                tr
+                    td MiG-25R Foxbat-B
+                    td Разведчик
+                    td СССР
+                    td 1964
+                    td 3.2
+                    td 123524
+                tr
+                    td X-2
+                    td Экспериментальный самолёт
+                    td США
+                    td 1953
+                    td 3.2
+                    td 126200
+                tr
+                    td XB-70 Valkyrie
+                    td Стратегический бомбардировщик
+                    td США
+                    td 1964
+                    td 3.1
+                    td 77350
+                tr
+                    td MiG-31 Foxhound
+                    td Истребитель перехватчик
+                    td СССР, Россия
+                    td 1975
+                    td 2.83
+                    td 67.600
+                tr
+                    td MiG-25 Foxbat (Ye-155)
+                    td Перехватчик
+                    td СССР
+                    td 1964
+                    td 2.8
+                    td 118900
+                tr
+                    td F-15 Eagle
+                    td Истрибитель
+                    td США
+                    td 1972
+                    td 2.5
+                    td 60000
+                tr
+                    td F-111
+                    td Тактический бомбардировщик
+                    td США
+                    td 1964
+                    td 2.5
+                    td 60000
+                tr
+                    td SU-57 Felon
+                    td Малозаметный многоцелевой истребитель
+                    td Россия
+                    td 2010
+                    td 2.45
+                    td 66000
+                tr
+                    td X-1
+                    td Экспериментальный самолёт
+                    td США
+                    td 1946
+                    td 2.435
+                    td 90440
+                tr
+                    td Su-24 Fencer
+                    td Фронтовой бомбардировщик
+                    td СССР, Россия
+                    td 1970
+                    td 2.4
+                    td 57400
+                tr
+                    td Tu-144 Charger
+                    td Сверхзвуковой пассажирский самолёт
+                    td СССР
+                    td 1968
+                    td 2.35
+                    td 59055
+                tr
+                    td MiG-23 Flogger
+                    td Многоцелевой истребитель
+                    td СССР
+                    td 1967
+                    td 2.35
+                    td 60700
+                tr
+                    td Su-27 Flanker
+                    td Многоцелевой истребитель
+                    td СССР, Россия
+                    td 1977
+                    td 2.35
+                    td 59055
+                tr
+                    td F-14A Tomcat
+                    td Палубный истребител
+                    td США
+                    td 1970
+                    td 2.34
+                    td 58000
+                tr
+                    td F-106 Delta Dart
+                    td Истребитель перехватчик
+                    td США
+                    td 1956
+                    td 2.31
+                    td 57000
+                tr
+                    td IAI Kfir
+                    td Истребитель бомбардировщик
+                    td Израиль
+                    td 1973
+                    td 2.3
+                    td 75000
+                tr
+                    td English Electric Lightning
+                    td Истребитель
+                    td Великобритания
+                    td 1954
+                    td 2.3
+                    td 60000
+                tr
+                    td MiG-29 Fulcrum
+                    td Лёгкий фронтовой истребитель
+                    td СССР, Россия
+                    td 1977
+                    td 2.3
+                    td 59060
+                tr
+                    td F-107 Ultra Sabre
+                    td Истребитель бомбардировщик
+                    td США
+                    td 1956
+                    td 2.3
+                    td 48000
+                tr
+                    td Tornado ADV
+                    td Перехватчик
+                    td Великобритания
+                    td 1979
+                    td 2.2
+                    td 69997
+                tr
+                    td F-4 Phantom
+                    td Перехватчик
+                    td США
+                    td 1958
+                    td 2.2
+                    td 62250
+                tr
+                    td Mirage 2000
+                    td Многоцелевой истрибитель
+                    td Франция
+                    td 1978
+                    td 2.2
+                    td 59055
+                tr
+                    td F-104 Starfighter
+                    td Многоцелевой истрибитель
+                    td США
+                    td 1954
+                    td 2.2
+                    td 58000
+                tr
+                    td B-58 Hustle
+                    td Сверхзвуковой стратегический бомбардировщик
+                    td США
+                    td 1956
+                    td 2.2
+                    td 64800
+                tr
+                    td F-105 Thunderchief
+                    td Истребитель бомбардировщик
+                    td США
+                    td 1955
+                    td 2.1
+                    td 52000
+                tr
+                    td A-5 Vigilante
+                    td Бомбардировщик с ядерным ударом
+                    td США
+                    td 1958
+                    td 2.1
+                    td 52100
+                tr
+                    td Su-22
+                    td Истребитель бомбардировщик
+                    td СССР
+                    td 1966
+                    td 2.09
+                    td 59055
+                tr
+                    td Tu-160 Blackjack
+                    td Сверхзвуковой стратегический бомбардировщик ракетоносец
+                    td СССР, Россия
+                    td 1981
+                    td 2.05
+                    td 52500
+                tr
+                    td MiG-21 Fishbed
+                    td Истрибитель
+                    td СССР
+                    td 1955
+                    td 2.05
+                    td 50000
+                tr
+                    td Concorde
+                    td Сверхзвуковой пассажирский самолёт
+                    td Франция
+                    td 1969
+                    td 2.05
+                    td 60000
+                tr
+                    td D558-2 Skyrocket
+                    td Экспериментальный самолёт
+                    td США
+                    td 1948
+                    td 2.005
+                    td 83235
+                tr
+                    td YF-23 Black Widow II
+                    td Прототип истребителя 5-го поколения
+                    td США
+                    td 1990
+                    td 2
+                    td 65000
+                tr
+                    td F-20 Tigershark
+                    td Истребитель
+                    td США
+                    td 1982
+                    td 2
+                    td 55000
+                tr
+                    td YF-17 Cobra
+                    td Многоцелевой истребитель
+                    td США
+                    td 1974
+                    td 2
+                    td 50000
+                tr
+                    td Saab JAS 39 Gripen
+                    td Истребитель бомбардировщик
+                    td Швеция
+                    td 1988
+                    td 2
+                    td 50000
+                tr
+                    td F-16 Fighting Falcon
+                    td Многоцелевой истребитель
+                    td США
+                    td 1974
+                    td 2
+                    td 50000
+                tr
+                    td Saab 37 Viggen
+                    td Многоцелевой истребитель
+                    td Швеция
+                    td 1967
+                    td 2
+                    td 60000
+                tr
+                    td Saab 35 Draken
+                    td Истрибитель
+                    td Швеция
+                    td 1955
+                    td 2
+                    td 65600
+                tr
+                    td Tu-22M Backfire
+                    td Дальний сверхзвуковой бомбардировщик ракетоносец
+                    td СССР, Россия
+                    td 1969
+                    td 1.88
+                    td 43635
+                tr
+                    td Su-34
+                    td Истребитель бомбардировщик
+                    td СССР, Россия
+                    td 1990
+                    td 1.8
+                    td 45890
+                tr
+                    td F/A-18E/F Super Hornet
+                    td Палубный истребитель
+                    td США
+                    td 1995
+                    td 1.8
+                    td 50000
+                tr
+                    td F-22 Raptor
+                    td Малозаметный многоцелевой истребитель
+                    td США
+                    td 1994
+                    td 1.8
+                    td 50000
+                tr
+                    td XF-104 Starfighter
+                    td Истребитель
+                    td США
+                    td 1956
+                    td 1.79
+                    td 58000
+                tr
+                    td F-8 Crusader
+                    td Палубный истребитель
+                    td США
+                    td 1955
+                    td 1.72
+                    td 58000
+                tr
+                    td F-101B Voodoo
+                    td Истребитель перехватчик
+                    td США
+                    td 1954
+                    td 1.66
+                    td 52100
+                tr
+                    td X-29 FSW
+                    td Экспериментальный самолёт
+                    td США
+                    td 1984
+                    td 1.6
+                    td 50000
+                tr
+                    td Tu-22 Blinder
+                    td Дальний бомбардировщик, ракетоносец
+                    td СССР
+                    td 1958
+                    td 1.52
+                    td 48228

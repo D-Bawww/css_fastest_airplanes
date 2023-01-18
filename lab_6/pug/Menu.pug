@@ -1,0 +1,30 @@
+mixin createMenu(title)
+	.menu_container
+		.logo 
+			span Самые быстрые самолёты
+		.menu
+			if title == 'Главная страница'
+				.menu_item.page Галерея
+			else
+				.menu_item
+					a(href="Index.html") Галерея
+			if title == 'Интересные'
+				.menu_item.page Интересные модели
+			else
+				.menu_item
+					a(href="Int_models.html") Интересные модели
+			if title == 'Гражданский'
+				.menu_item.page Самый быстрый пассажирский самолёт
+			else
+				.menu_item
+					a(href="Civ.html") Самый быстрый пассажирский самолёт
+			if title == 'Военный'
+				.menu_item.page Самый быстрый военный самолёт
+			else
+				.menu_item
+					a(href="Mil.html") Самый быстрый военный самолёт
+			if title == 'Топ'
+				.menu_item.page ТОП-50 самых быстрых самолётов
+			else
+				.menu_item
+					a(href="Top.html") ТОП-50 самых быстрых самолётов

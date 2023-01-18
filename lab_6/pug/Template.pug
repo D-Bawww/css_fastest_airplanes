@@ -1,0 +1,15 @@
+block variables
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		title #{title}
+		link(rel="stylesheet", href= 'C:/Users/1/Desktop/lab_6/styl/dist/main.css')
+	body
+		include Menu
+		+createMenu(title)
+		block content
+	footer
+		p *Текст*
+		p *Текст*
